@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/app/components/header";
 import data from "@/app/data";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -10,9 +11,10 @@ export default function Details({ params }) {
   useEffect(() => {
     setBlog(data[params.id - 1]);
   }, []);
-
+  console.log(blog);
   return (
     <div>
+      <Header head={blog.title} />
       <div class="mt-8 ml-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -31,14 +33,15 @@ export default function Details({ params }) {
           </Link>
         </svg>
       </div>
-
       <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white  antialiased">
         <div class="flex justify-center ">
-          <h1>{blog.title}</h1>
+          <article class="text-justify p-10 mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+            <p>{blog.body}</p>
+          </article>
         </div>
         <br />
-        <div class="flex justify-between px-4 mx-auto max-w-screen-xl dark:bg-gray-900">
-          <article class="p-10 text-white mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+        <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+          <article class="text-justify p-10 mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
             <figure>
               <img src={blog.img} alt="" />
               <figcaption>
@@ -49,8 +52,7 @@ export default function Details({ params }) {
               </figcaption>
             </figure>
             <br />
-            <p>{blog.body}</p>
-            <p></p>
+            <p>{blog.content}</p>
           </article>
         </div>
       </main>
