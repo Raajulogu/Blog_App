@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="card-box">
        <Header head="Blogs Posts"/>
-      <div class="flex flex-wrap">
+      <div class="flex flex-wrap mt-20 pt-10">
         {datas && datas.map((val, index) => <Card key={index} data={val} />)}
       </div>
     </main>

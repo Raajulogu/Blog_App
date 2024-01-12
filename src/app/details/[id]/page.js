@@ -15,7 +15,7 @@ export default function Details({ params }) {
   return (
     <div>
       <Header head={blog.title} />
-      <div class="mt-8 ml-10">
+      <div class="mt-20 ml-10  pt-20">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
