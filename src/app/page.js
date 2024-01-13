@@ -1,22 +1,12 @@
 "use client";
 
-import Card from "./components/card";
-import { useEffect, useState } from "react";
-import data from "./data.js";
-import Header from "./components/header";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
-  let [datas, setDatas] = useState([]);
+  let router = useRouter();
   useEffect(() => {
-    setDatas(data);
-    console.log(data);
+    router.push("/blog");
   }, []);
-  return (
-    <main className="card-box">
-       <Header head="Blogs Posts"/>
-      <div class="flex flex-wrap mt-20 pt-10">
-        {datas && datas.map((val, index) => <Card key={index} data={val} />)}
-      </div>
-    </main>
-  );
+  return <main className="card-box"></main>;
 }
